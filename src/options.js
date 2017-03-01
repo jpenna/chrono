@@ -41,6 +41,10 @@ function baseOption(strictMode) {
             new parser.ZHHantTimeExpressionParser(strictMode),
             new parser.ZHHantCasualDateParser(strictMode),
             new parser.ZHHantDeadlineFormatParser(strictMode),
+
+            // PT-BR
+            // new parser.PTBRCasualDateParser(strictMode),
+            // new parser.PTBRCasualTimeParser(strictMode),
         ],
 
         refiners: [
@@ -49,6 +53,7 @@ function baseOption(strictMode) {
             new refiner.ForwardDateRefiner(),
 
             // ETC
+            new refiner.PTBRMergeDateTimeRefiner(), // TODO set "location", so order won't matter
             new refiner.ENMergeDateTimeRefiner(),
             new refiner.ENMergeDateRangeRefiner(),
             new refiner.ENPrioritizeSpecificDateRefiner(),
@@ -92,6 +97,11 @@ exports.casualOption = function () {
     // FR
     options.parsers.unshift(new parser.FRCasualDateParser());
     options.parsers.unshift(new parser.FRWeekdayParser());
+
+    // PT-BR
+    options.parsers.unshift(new parser.PTBRCasualDateParser());
+    options.parsers.unshift(new parser.PTBRCasualTimeParser());
+    options.parsers.unshift(new parser.PTBRWeekdayParser());
 
     return options;
 };

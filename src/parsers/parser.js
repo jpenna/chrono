@@ -21,6 +21,7 @@ function Parser(strictMode) {
             match.index += text.length - remainingText.length;
 
             var result = this.extract(text, ref, match, opt);
+
             if (result) {
 
                 // If success, start from the end of the result
@@ -50,6 +51,7 @@ function Parser(strictMode) {
 
 exports.Parser = Parser;
 
+// EN
 exports.ENISOFormatParser = require('./EN/ENISOFormatParser').Parser;
 exports.ENDeadlineFormatParser = require('./EN/ENDeadlineFormatParser').Parser;
 exports.ENRelativeDateFormatParser = require('./EN/ENRelativeDateFormatParser').Parser;
@@ -65,10 +67,11 @@ exports.ENWeekdayParser = require('./EN/ENWeekdayParser').Parser;
 exports.ENCasualDateParser = require('./EN/ENCasualDateParser').Parser;
 exports.ENCasualTimeParser = require('./EN/ENCasualTimeParser').Parser;
 
+// JP
 exports.JPStandardParser = require('./JP/JPStandardParser').Parser;
 exports.JPCasualDateParser = require('./JP/JPCasualDateParser').Parser;
 
-
+// ES
 exports.ESCasualDateParser = require('./ES/ESCasualDateParser').Parser;
 exports.ESDeadlineFormatParser = require('./ES/ESDeadlineFormatParser').Parser;
 exports.ESTimeAgoFormatParser = require('./ES/ESTimeAgoFormatParser').Parser;
@@ -77,6 +80,7 @@ exports.ESWeekdayParser = require('./ES/ESWeekdayParser').Parser;
 exports.ESMonthNameLittleEndianParser = require('./ES/ESMonthNameLittleEndianParser').Parser;
 exports.ESSlashDateFormatParser = require('./ES/ESSlashDateFormatParser').Parser;
 
+// FR
 exports.FRCasualDateParser = require('./FR/FRCasualDateParser').Parser;
 exports.FRDeadlineFormatParser = require('./FR/FRDeadlineFormatParser').Parser;
 exports.FRMonthNameLittleEndianParser = require('./FR/FRMonthNameLittleEndianParser').Parser;
@@ -85,9 +89,14 @@ exports.FRTimeAgoFormatParser = require('./FR/FRTimeAgoFormatParser').Parser;
 exports.FRTimeExpressionParser = require('./FR/FRTimeExpressionParser').Parser;
 exports.FRWeekdayParser = require('./FR/FRWeekdayParser').Parser;
 
+// ZH-Hant
 exports.ZHHantDateParser = require('./ZH-Hant/ZHHantDateParser').Parser;
 exports.ZHHantWeekdayParser = require('./ZH-Hant/ZHHantWeekdayParser').Parser;
 exports.ZHHantTimeExpressionParser = require('./ZH-Hant/ZHHantTimeExpressionParser').Parser;
 exports.ZHHantCasualDateParser = require('./ZH-Hant/ZHHantCasualDateParser').Parser;
 exports.ZHHantDeadlineFormatParser = require('./ZH-Hant/ZHHantDeadlineFormatParser').Parser;
 
+// PT-BR
+exports.PTBRCasualDateParser = require('./PT-BR/PTBRCasualDateParser').Parser;
+exports.PTBRCasualTimeParser = require('./PT-BR/PTBRCasualTimeParser').Parser;
+exports.PTBRWeekdayParser = require('./PT-BR/PTBRWeekdayParser').Parser;

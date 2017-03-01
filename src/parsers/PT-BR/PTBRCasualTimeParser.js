@@ -1,0 +1,49 @@
+/*
+
+
+*/
+
+var moment = require('moment');
+var Parser = require('../parser').Parser;
+var ParsedResult = require('../../result').ParsedResult;
+
+var PATTERN = /(\W|^)\s*(manh[ãa]|tarde|noite)\s*/i;
+
+var TIME_MATCH = 2;
+
+exports.Parser = function PTBRCasualTimeParser(){
+
+    Parser.apply(this, arguments);
+
+    this.pattern = function() { return PATTERN; }
+
+    this.extract = function(text, ref, match, opt){
+
+        var text = match[0].substr(match[1].length);
+        var index = match.index + match[1].length;
+        var result = new ParsedResult({
+            index: index,
+            text: text,
+            ref: ref,
+        });
+
+        if(!match[TIME_MATCH]) TIME_MATCH = 3;
+
+        if (match[TIME_MATCH] == "tarde") {
+
+            result.start.imply('hour', opt['evening'] ? opt['evening'] : 14);
+
+        } else if (match[TIME_MATCH] == "noite") {
+
+            result.start.imply('hour', opt['night'] ? opt['night'] : 18);
+
+        } else if (/manh[aã]/.test(match[TIME_MATCH])) {
+
+            result.start.imply('hour', opt['morning'] ? opt['morning'] : 7);
+
+        }
+
+        result.tags['PTBRCasualTimeParser'] = true;
+        return result;
+    };
+};

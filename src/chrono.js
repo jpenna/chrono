@@ -40,7 +40,7 @@ Chrono.prototype.parse = function(text, refDate, opt) {
     this.refiners.forEach(function (refiner) {
         allResults = refiner.refine(text, allResults, opt);
     });
-    
+
     return allResults;
 };
 
@@ -48,6 +48,8 @@ Chrono.prototype.parse = function(text, refDate, opt) {
 Chrono.prototype.parseDate = function(text, refDate, opt) {
     var results = this.parse(text, refDate, opt);
     if (results.length > 0) {
+        results[0].start.assign('timezoneOffset', 0); // TODO do I have to have it always?
+        console.log(results);
         return results[0].start.date();
     }
     return null;
