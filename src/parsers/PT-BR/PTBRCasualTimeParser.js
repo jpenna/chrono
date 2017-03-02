@@ -31,15 +31,15 @@ exports.Parser = function PTBRCasualTimeParser(){
 
         if (match[TIME_MATCH] == "tarde") {
 
-            result.start.imply('hour', opt['evening'] ? opt['evening'] : 14);
+            result.start.imply('hour', opt['evening'] ? opt['evening'] : 15);
 
         } else if (match[TIME_MATCH] == "noite") {
 
-            result.start.imply('hour', opt['night'] ? opt['night'] : 18);
+            result.start.imply('hour', opt['night'] ? opt['night'] : 21);
 
         } else if (/manh[aã]/.test(match[TIME_MATCH])) {
 
-            result.start.imply('hour', opt['morning'] ? opt['morning'] : 7);
+            result.start.imply('hour', opt['morning'] ? opt['morning'] : 9);
 
         }
 
