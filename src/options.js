@@ -46,7 +46,6 @@ function baseOption(strictMode) {
             new parser.PTBRDeadlineFormatParser(strictMode),
             new parser.PTBRMonthNameLittleEndianParser(strictMode),
             new parser.PTBRMonthNameParser(strictMode),
-            new parser.PTBRMonthNameParser(strictMode),
             new parser.PTBRSlashDateFormatParser(strictMode),
             new parser.PTBRTimeAgoFormatParser(strictMode),
             new parser.PTBRTimeExpressionParser(strictMode),
@@ -109,7 +108,6 @@ exports.casualOption = function () {
     options.parsers.unshift(new parser.PTBRCasualDateParser());
     options.parsers.unshift(new parser.PTBRCasualTimeParser());
     options.parsers.unshift(new parser.PTBRWeekdayParser());
-    options.parsers.unshift(new parser.PTBRDeadlineFormatParser());
     options.parsers.unshift(new parser.PTBRRelativeDateFormatParser());
 
     return options;
