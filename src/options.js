@@ -104,6 +104,7 @@ exports.casualOption = function () {
     options.parsers.unshift(new parser.PTBRCasualTimeParser());
     options.parsers.unshift(new parser.PTBRWeekdayParser());
     options.parsers.unshift(new parser.PTBRDeadlineFormatParser());
+    options.parsers.unshift(new parser.PTBRRelativeDateFormatParser());
 
     return options;
 };

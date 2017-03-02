@@ -51,7 +51,6 @@ exports.Parser = function PTBRMonthNameParser(){
 
             if(match[YEAR_BE_GROUP]){
                 if (match[YEAR_BE_GROUP].match(/A\.?C\.?/i)) {
-                  console.log('bfd');
                     // Before Christ
                     year = -year;
                 }
