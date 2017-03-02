@@ -1,15 +1,15 @@
 
-exports.Refiner = function Refiner() { 
+exports.Refiner = function Refiner() {
 
     this.refine = function(text, results, opt) { return results; };
 }
 
-exports.Filter = function Filter() { 
-    
+exports.Filter = function Filter() {
+
     exports.Refiner.call(this);
 
     this.isValid = function(text, result, opt) { return true; }
-    this.refine = function(text, results, opt) { 
+    this.refine = function(text, results, opt) {
 
         var filteredResult = [];
         for (var i=0; i < results.length; i++) {
@@ -46,3 +46,4 @@ exports.FRMergeDateTimeRefiner = require('./FR/FRMergeDateTimeRefiner').Refiner;
 
 // PTBR refiners
 exports.PTBRMergeDateTimeRefiner = require('./PT-BR/PTBRMergeDateTimeRefiner').Refiner;
+exports.PTBRMergeDateRangeRefiner = require('./PT-BR/PTBRMergeDateRangeRefiner').Refiner;

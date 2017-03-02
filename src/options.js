@@ -60,6 +60,7 @@ function baseOption(strictMode) {
 
             // ETC
             new refiner.PTBRMergeDateTimeRefiner(), // TODO set "location", so order won't matter
+            new refiner.PTBRMergeDateRangeRefiner(), // TODO set "location", so order won't matter
             new refiner.ENMergeDateTimeRefiner(),
             new refiner.ENMergeDateRangeRefiner(),
             new refiner.ENPrioritizeSpecificDateRefiner(),
