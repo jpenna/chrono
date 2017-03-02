@@ -104,3 +104,5 @@ exports.PTBRDeadlineFormatParser = require('./PT-BR/PTBRDeadlineFormatParser').P
 exports.PTBRMonthNameLittleEndianParser = require('./PT-BR/PTBRMonthNameLittleEndianParser').Parser;
 exports.PTBRMonthNameParser = require('./PT-BR/PTBRMonthNameParser').Parser;
 exports.PTBRRelativeDateFormatParser = require('./PT-BR/PTBRRelativeDateFormatParser').Parser;
+exports.PTBRSlashDateFormatParser = require('./PT-BR/PTBRSlashDateFormatParser').Parser;
+exports.PTBRTimeAgoFormatParser = require('./PT-BR/PTBRTimeAgoFormatParser').Parser;

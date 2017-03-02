@@ -9,9 +9,9 @@ var ParsedResult = require('../../result').ParsedResult;
 var util  = require('../../utils/PT-BR');
 
 var PATTERN = new RegExp('(\\W|^)' +
-    '(em|dentro\\s*de)\\s*' +
-    '('+ util.INTEGER_WORDS_PATTERN + '|[0-9]+|algu(?:mas?|ns?)|pouc[ao]s?|mei[ao])?\\s*' +
-    '(seg(?:undo)?s?|min(?:uto)?s?|horas?|dias?|semanas?|m[eê]s(?:es)?|anos?)\\s*' +
+    '(em|dentro\\s*de)\\s*(?:u[n,m]a?s\\s*)?' +
+    '('+ util.INTEGER_WORDS_PATTERN + '|[0-9]+|pouc[ao]s?|algu(?:mas?|ns?)|mei[ao])?\\s*' +
+    '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)?s?|dias?|semanas?|m[eê]s(?:es)?|anos?)\\s*' +
     '(?=\\W|$)', 'i'
 );
 
@@ -71,7 +71,7 @@ exports.Parser = function PTBRDeadlineFormatParser(){
             return result;
         }
 
-        if (match[4].match(/hora/i)) {
+        if (match[4].match(/h/i)) {
 
             date.add(num, 'hour');
 

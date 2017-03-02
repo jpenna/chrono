@@ -46,6 +46,10 @@ function baseOption(strictMode) {
             new parser.PTBRDeadlineFormatParser(strictMode),
             new parser.PTBRMonthNameLittleEndianParser(strictMode),
             new parser.PTBRMonthNameParser(strictMode),
+            new parser.PTBRMonthNameParser(strictMode),
+            new parser.PTBRSlashDateFormatParser(strictMode),
+            new parser.PTBRTimeAgoFormatParser(strictMode),
+
         ],
 
         refiners: [
