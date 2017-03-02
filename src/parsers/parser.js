@@ -100,3 +100,4 @@ exports.ZHHantDeadlineFormatParser = require('./ZH-Hant/ZHHantDeadlineFormatPars
 exports.PTBRCasualDateParser = require('./PT-BR/PTBRCasualDateParser').Parser;
 exports.PTBRCasualTimeParser = require('./PT-BR/PTBRCasualTimeParser').Parser;
 exports.PTBRWeekdayParser = require('./PT-BR/PTBRWeekdayParser').Parser;
+exports.PTBRDeadlineFormatParser = require('./PT-BR/PTBRDeadlineFormatParser').Parser;

@@ -5,7 +5,7 @@
 var moment = require('moment');
 var Parser = require('../parser').Parser;
 var ParsedResult = require('../../result').ParsedResult;
-var utils = require('../../utils/PTBR');
+var utils = require('../../utils/PT-BR');
 
 var DAYS_OFFSET = utils.WEEKDAY_OFFSET;
 

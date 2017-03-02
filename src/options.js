@@ -43,8 +43,7 @@ function baseOption(strictMode) {
             new parser.ZHHantDeadlineFormatParser(strictMode),
 
             // PT-BR
-            // new parser.PTBRCasualDateParser(strictMode),
-            // new parser.PTBRCasualTimeParser(strictMode),
+            new parser.PTBRDeadlineFormatParser(strictMode),
         ],
 
         refiners: [
@@ -102,6 +101,7 @@ exports.casualOption = function () {
     options.parsers.unshift(new parser.PTBRCasualDateParser());
     options.parsers.unshift(new parser.PTBRCasualTimeParser());
     options.parsers.unshift(new parser.PTBRWeekdayParser());
+    options.parsers.unshift(new parser.PTBRDeadlineFormatParser());
 
     return options;
 };
