@@ -12,7 +12,7 @@ var DAYS_OFFSET = utils.WEEKDAY_OFFSET;
 var PATTERN = new RegExp('(\\W|^)' +
     '(?:(?:\\,|\\(|\\（)\\s*)?' +
     '(?:(nes[st][ea]|pr[óo]xim[oa]|[uú]ltim[oa])\\s*)?' +
-    '(' + Object.keys(DAYS_OFFSET).join('|') + ')' +
+    '(' + Object.keys(DAYS_OFFSET).join('|') + ')(:?-feira)?' +
     '(?:\\s*(?:\\,|\\)|\\）))?' +
     '(?:\\s*(da\\s*semana\\s*passad[oa]|passad[oa]|que\\s*vem)\\s*)?' +
     '(?=\\W|$)', 'i');

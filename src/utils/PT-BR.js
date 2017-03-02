@@ -17,6 +17,9 @@ exports.WEEKDAY_OFFSET = {
     'sáb': 6,
     'sab': 6,}
 
+exports.WEEKDAY_OFFSET_PATTERN = '(?:' + Object.keys(exports.WEEKDAY_OFFSET).join('|') +')';
+
+
 exports.MONTH_OFFSET = {
     'janeiro': 1,
     'jan': 1,
@@ -56,6 +59,7 @@ exports.MONTH_OFFSET = {
     'dez': 12,
     'dez.': 12,
 }
+exports.MONTH_OFFSET_PATTERN = '(?:' + Object.keys(exports.MONTH_OFFSET).join('|') +')';
 
 exports.INTEGER_WORDS = {
     'zero' : 0,

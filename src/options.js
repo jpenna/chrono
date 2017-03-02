@@ -44,6 +44,8 @@ function baseOption(strictMode) {
 
             // PT-BR
             new parser.PTBRDeadlineFormatParser(strictMode),
+            new parser.PTBRMonthNameLittleEndianParser(strictMode),
+            new parser.PTBRMonthNameParser(strictMode),
         ],
 
         refiners: [
