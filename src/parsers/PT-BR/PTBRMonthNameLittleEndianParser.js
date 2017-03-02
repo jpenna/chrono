@@ -49,9 +49,7 @@ exports.Parser = function PTBRMonthNameLittleEndianParser(){
         var month = match[MONTH_NAME_GROUP];
         month = util.MONTH_OFFSET[month.toLowerCase()];
 
-        var day = match[DATE_NUM_GROUP] ?
-            parseInt(match[DATE_NUM_GROUP]):
-            util.ORDINAL_WORDS[match[DATE_GROUP].trim().replace('-', ' ').toLowerCase()];
+        var day = match[DATE_NUM_GROUP];
 
         var year = null;
         if (match[YEAR_GROUP]) {
@@ -60,10 +58,7 @@ exports.Parser = function PTBRMonthNameLittleEndianParser(){
 
             if(match[YEAR_BE_GROUP]){
 
-                if (/BE/i.test(match[YEAR_BE_GROUP])) {
-                    // Buddhist Era
-                    year = year - 543;
-                } else if (/BC/i.test(match[YEAR_BE_GROUP])) {
+                if (/A\.?C\.?/i.test(match[YEAR_BE_GROUP])) {
                     // Before Christ
                     year = -year;
                 }
@@ -114,9 +109,7 @@ exports.Parser = function PTBRMonthNameLittleEndianParser(){
 
         // Text can be 'range' value. Such as '12 - 13 January 2012'
         if (match[DATE_TO_GROUP]) {
-            var endDate = match[DATE_TO_NUM_GROUP] ?
-                parseInt(match[DATE_TO_NUM_GROUP]):
-                util.ORDINAL_WORDS[match[DATE_TO_GROUP].trim().replace('-', ' ').toLowerCase()];
+            var endDate = parseInt(match[DATE_TO_NUM_GROUP]);
 
             result.end = result.start.clone();
             result.end.assign('day', endDate);
