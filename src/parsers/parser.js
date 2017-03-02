@@ -106,3 +106,4 @@ exports.PTBRMonthNameParser = require('./PT-BR/PTBRMonthNameParser').Parser;
 exports.PTBRRelativeDateFormatParser = require('./PT-BR/PTBRRelativeDateFormatParser').Parser;
 exports.PTBRSlashDateFormatParser = require('./PT-BR/PTBRSlashDateFormatParser').Parser;
 exports.PTBRTimeAgoFormatParser = require('./PT-BR/PTBRTimeAgoFormatParser').Parser;
+exports.PTBRTimeExpressionParser = require('./PT-BR/PTBRTimeExpressionParser').Parser;

@@ -49,6 +49,7 @@ function baseOption(strictMode) {
             new parser.PTBRMonthNameParser(strictMode),
             new parser.PTBRSlashDateFormatParser(strictMode),
             new parser.PTBRTimeAgoFormatParser(strictMode),
+            new parser.PTBRTimeExpressionParser(strictMode),
 
         ],
 
