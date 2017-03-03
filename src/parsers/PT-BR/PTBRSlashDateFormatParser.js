@@ -60,9 +60,11 @@ exports.Parser = function PTBRSlashDateFormatParser(argument) {
         if(text.match(/^\d\.\d$/)) return;
         if(text.match(/^\d\.\d{1,2}\.\d{1,2}$/)) return;
 
-        // MM/dd -> OK
-        // MM.dd -> NG
-        if(!match[YEAR_GROUP] && !(match[0].indexOf('/') > 0 || match[0].indexOf('do') > 0)) return;
+        // dd/MM -> OK
+        // dd-MM -> OK
+        // dd do MM -> OK
+        // dd.MM -> NG
+        if(!match[YEAR_GROUP] && match[0].indexOf('.') > 0) return;
 
         var date = null;
         var year = match[YEAR_GROUP] || moment(ref).year() + '';
