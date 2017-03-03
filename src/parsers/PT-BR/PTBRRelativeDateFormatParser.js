@@ -9,15 +9,17 @@ var ParsedResult = require('../../result').ParsedResult;
 var util  = require('../../utils/PT-BR');
 
 var PATTERN = new RegExp('(\\W|^)' +
-    '(daqui|mais|pr[óo]xim[ao]s?|[úu]ltim[oa]s?|tem)\\s*(?:u[n,m]a?s\\s*)?' +
+    '(daqui|mais|pr[óo]xim[ao]s?|[úu]ltim[oa]s?|tem)?\\s*(?:u[n,m]a?s\\s*)?' +
     '('+ util.INTEGER_WORDS_PATTERN + '|[0-9]+|mei[oa])?\\s*' +
-    '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)?s?|dias?|semanas?|m[êe]s(?:es)?|anos?)(?=\\s*)' +
+    '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)?s?|dias?|semanas?|m[êe]s(?:es)?|anos?)(?:\\s*)' +
+    '(que\\s*vem)?' +
     '(?=\\W|$)', 'i'
 );
 
 var MODIFIER_WORD_GROUP = 2;
 var MULTIPLIER_WORD_GROUP = 3;
 var RELATIVE_WORD_GROUP = 4;
+var POST_WORD_GROUP = 4;
 
 exports.Parser = function PTBRRelativeDateFormatParser(){
     Parser.apply(this, arguments);
@@ -27,7 +29,7 @@ exports.Parser = function PTBRRelativeDateFormatParser(){
     this.extract = function(text, ref, match, opt){
 
         var index = match.index + match[1].length;
-        var modifier = match[MODIFIER_WORD_GROUP].toLowerCase().match(/ltim|^tem/) ? -1 : 1;
+        var modifier = match[MODIFIER_WORD_GROUP] && match[MODIFIER_WORD_GROUP].toLowerCase().match(/ltim|^tem/) ? -1 : 1;
         var text  = match[0];
         text  = match[0].substr(match[1].length, match[0].length - match[1].length);
 
@@ -42,7 +44,7 @@ exports.Parser = function PTBRRelativeDateFormatParser(){
         if (util.INTEGER_WORDS[num] !== undefined) {
             num = util.INTEGER_WORDS[num];
         } else if (num === ''){
-          if (match[MODIFIER_WORD_GROUP].match(/s$/)) {
+          if (match[MODIFIER_WORD_GROUP] && match[MODIFIER_WORD_GROUP].match(/s$/)) {
             num = 3;
           } else {
             num = 1;
@@ -54,6 +56,10 @@ exports.Parser = function PTBRRelativeDateFormatParser(){
         }
 
         num *= modifier;
+
+        if (match[POST_WORD_GROUP].match(/que\s*vem/)) {
+          num = 1;
+        }
 
         var date = moment(ref);
         if (match[RELATIVE_WORD_GROUP].match(/dia|semana|m[eê]s|ano/i)) {
