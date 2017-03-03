@@ -9,7 +9,7 @@ var ParsedResult = require('../../result').ParsedResult;
 var util  = require('../../utils/PT-BR');
 
 var PATTERN = new RegExp('(\\W|^)' +
-    '(daqui|mais|pr[óo]xim[ao]s?|[úu]ltim[oa]s?)\\s*(?:u[n,m]a?s\\s*)?' +
+    '(daqui|mais|pr[óo]xim[ao]s?|[úu]ltim[oa]s?|tem)\\s*(?:u[n,m]a?s\\s*)?' +
     '('+ util.INTEGER_WORDS_PATTERN + '|[0-9]+|mei[oa])?\\s*' +
     '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)?s?|dias?|semanas?|m[êe]s(?:es)?|anos?)(?=\\s*)' +
     '(?=\\W|$)', 'i'
@@ -27,7 +27,7 @@ exports.Parser = function PTBRRelativeDateFormatParser(){
     this.extract = function(text, ref, match, opt){
 
         var index = match.index + match[1].length;
-        var modifier = !match[MODIFIER_WORD_GROUP].toLowerCase().match(/ltim/) ? 1 : -1;
+        var modifier = match[MODIFIER_WORD_GROUP].toLowerCase().match(/ltim|^tem/) ? -1 : 1;
         var text  = match[0];
         text  = match[0].substr(match[1].length, match[0].length - match[1].length);
 
