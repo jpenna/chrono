@@ -7,7 +7,7 @@ var moment = require('moment');
 var Parser = require('../parser').Parser;
 var ParsedResult = require('../../result').ParsedResult;
 
-var PATTERN = /(\W|^)(agora|hoje|noite\s*passada|(?:amanh[ãa]|ontem)\s*|amanh[ãa]|ontem)(?=\W|$)/i;
+var PATTERN = /(\W|^)(agora|hoje|noite\s*passada|(?:depois\s*de\s*)?amanh[ãa]|ontem|ant[ei]ontem)(?=\W|$)/i;
 
 exports.Parser = function PTBRCasualDateParser(){
 
@@ -36,9 +36,23 @@ exports.Parser = function PTBRCasualDateParser(){
                 startMoment.add(1, 'day');
             }
 
+        } else if (/(?:depois\s*de\s*)?amanh[ãa]/.test(lowerText)) {
+
+            // Check not "Tomorrow" on late night
+            if(refMoment.hour() > 1) {
+                startMoment.add(2, 'day');
+            } else {
+                startMoment.add(1, 'day');
+            }
+
+
         } else if (/^ontem/.test(lowerText)) {
 
             startMoment.add(-1, 'day');
+
+        } else if (/^ant[ei]ontem/.test(lowerText)) {
+
+            startMoment.add(-2, 'day');
 
         } else if(lowerText == "noite passada") {
 

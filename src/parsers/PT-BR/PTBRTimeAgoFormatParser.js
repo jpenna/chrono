@@ -11,9 +11,9 @@ var util  = require('../../utils/PT-BR');
 var PATTERN = new RegExp('' +
     '(\\W|^)' +
     '(?:em\\s*)?(?:u[n,m]a?s\\s*)?' +
-    '(' + util.INTEGER_WORDS_PATTERN + '|[0-9]+|u[n,m]a?s?|pouc[ao]s?|algu(?:mas?|ns?)|mei[ao])\\s*' +
+    '(' + util.INTEGER_WORDS_PATTERN + '|[0-9]+|u[n,m]a?s?|pouc[ao]s?|algu(?:mas?|ns?)|mei[ao])?\\s*' +
     '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)s?|dias?|semanas?|m[eê]s(?:es)?|anos?)\\s*' +
-    '(?:atr[áa][sz]|mais\\s*[sc]edo|antes)(?=(?:\\W|$))', 'i');
+    '(?:atr[áa][sz]|mais\\s*[sc]edo|antes|passad[oa])(?=(?:\\W|$))', 'i');
 
 var STRICT_PATTERN = new RegExp('' +
     '(\\W|^)' +
@@ -43,7 +43,7 @@ exports.Parser = function PTBRTimeAgoFormatParser(){
             ref: ref
         });
 
-        var num = match[2].toLowerCase() ;
+        var num = match[2] ? match[2].toLowerCase() : '1';
         if (util.INTEGER_WORDS[num] !== undefined) {
             num = util.INTEGER_WORDS[num];
         } else if(num.match(/u[n,m]a/)){
