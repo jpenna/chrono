@@ -6,7 +6,7 @@ var Refiner = require('../refiner').Refiner;
 exports.Refiner = function PTBRMergeDateRangeRefiner() {
     Refiner.call(this);
 
-    this.pattern = function () { return /^\s*(at[ée]|\-|[aàá]s?)\s*$/i };
+    this.pattern = function () { return /^\s*(at[ée]|\-|[aàá]s?|e)\s*/i };
 
     this.refine = function(text, results, opt) {
 

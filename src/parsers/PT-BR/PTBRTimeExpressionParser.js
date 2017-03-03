@@ -9,7 +9,7 @@ var ParsedResult = require('../../result').ParsedResult;
 var ParsedComponents = require('../../result').ParsedComponents;
 
 var FIRST_REG_PATTERN  = new RegExp("(^|\\s|T)" +
-    "(?:(?:[aà]s?|das?)\\s*)?" +
+    "(?:(?:[aà]s?|das?|de)\\s*)?" +
     "(\\d{1,4}|meia[- ]*noite|meio[- ]*dia)" +
     "(?:" +
         "(?:\\.|\\:|\\：)(\\d{1,2})" +

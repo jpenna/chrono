@@ -9,14 +9,14 @@ var ParsedResult = require('../../result').ParsedResult;
 var util  = require('../../utils/PT-BR');
 
 var PATTERN = new RegExp('(\\W|^)' +
-    '(em|dentro\\s*de)\\s*(?:u[n,m]a?s\\s*)?' +
+    '(em|dentro\\s*de|entre)\\s*(?:u[n,m]a?s\\s*)?' +
     '('+ util.INTEGER_WORDS_PATTERN + '|[0-9]+|pouc[ao]s?|algu(?:mas?|ns?)|mei[ao])?\\s*' +
     '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)?s?|dias?|semanas?|m[eê]s(?:es)?|anos?)\\s*' +
     '(?=\\W|$)', 'i'
 );
 
 var STRICT_PATTERN = new RegExp('(\\W|^)' +
-    '(em|dentro\\s*de)\\s*' +
+    '(em|dentro\\s*de|entre)\\s*' +
     '('+ util.INTEGER_WORDS_PATTERN + '|[0-9]+)\\s*' +
     '(segundos?|minutos?|horas?|dias?)\\s*' +
     '(?=\\W|$)', 'i'
@@ -41,7 +41,7 @@ exports.Parser = function PTBRDeadlineFormatParser(){
             ref: ref
         });
 
-        var num = match[3].toLowerCase();
+        var num = match[3] ? match[3].toLowerCase() : '0';
         if (util.INTEGER_WORDS[num] !== undefined) {
             num = util.INTEGER_WORDS[num];
         } else if (num.match(/algu(?:mas?|ns?)|pouc[ao]s?/i)){
