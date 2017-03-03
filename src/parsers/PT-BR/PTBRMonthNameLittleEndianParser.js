@@ -49,7 +49,7 @@ exports.Parser = function PTBRMonthNameLittleEndianParser(){
         var month = match[MONTH_NAME_GROUP];
         month = util.MONTH_OFFSET[month.toLowerCase()];
 
-        var day = match[DATE_NUM_GROUP];
+        var day = match[DATE_NUM_GROUP] || util.INTEGER_WORDS[match[DATE_GROUP]];
 
         var year = null;
         if (match[YEAR_GROUP]) {
