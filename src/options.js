@@ -14,7 +14,7 @@ function baseOption(strictMode) {
             // new parser.ENMonthNameParser(strictMode),
             // new parser.ENSlashDateFormatParser(strictMode),
             // new parser.ENSlashDateFormatStartWithYearParser(strictMode),
-            new parser.ENSlashMonthFormatParser(strictMode),
+            // new parser.ENSlashMonthFormatParser(strictMode),
             // new parser.ENTimeAgoFormatParser(strictMode),
             // new parser.ENTimeExpressionParser(strictMode),
 
@@ -49,6 +49,7 @@ function baseOption(strictMode) {
             new parser.PTBRSlashDateFormatParser(strictMode),
             new parser.PTBRTimeAgoFormatParser(strictMode),
             new parser.PTBRTimeExpressionParser(strictMode),
+            new parser.PTBRSlashMonthFormatParser(strictMode),
 
         ],
 

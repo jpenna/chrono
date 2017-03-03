@@ -3,6 +3,8 @@
     - Tuesday 11/3/2015
     - 11/3/2015
     - 11/3
+    - Terça 11 do 3
+    - 11 do 3
 */
 var moment = require('moment');
 var Parser = require('../parser').Parser;
@@ -15,9 +17,9 @@ var PATTERN = new RegExp('(\\W|^)' +
         '((?:dom(?:ingo)?|seg(?:unda)?|ter(?:er[cç]a)?|qua(?:rta)?|qui(?:nta?)?|sex(?:ta)?|s[áa]b(?:ado)?)(?:-feira)?)' +
         '\\s*\\,?\\s*' +
     ')?' +
-    '([0-3]{0,1}[0-9]{1})[\\/\\.\\-]([0-3]{0,1}[0-9]{1})' +
+    '([0-3]{0,1}[0-9]{1})(?:[\\/\\.\\-]|\\s*do\\s*)([0-3]{0,1}[0-9]{1})' +
     '(?:' +
-        '[\\/\\.\\-]' +
+        '[\\/\\.\\-]|\\s*de\\s*' +
         '([0-9]{4}\s*\,?\s*|[0-9]{2}\s*\,?\s*)' +
     ')?' +
     '(\\W|$)', 'i');
@@ -49,7 +51,6 @@ exports.Parser = function PTBRSlashDateFormatParser(argument) {
         var index = match.index + match[OPENNING_GROUP].length;
         var text = match[0].substr(match[OPENNING_GROUP].length, match[0].length - match[ENDING_GROUP].length);
 
-
         var result = new ParsedResult({
             text: text,
             index: index,
@@ -61,7 +62,7 @@ exports.Parser = function PTBRSlashDateFormatParser(argument) {
 
         // MM/dd -> OK
         // MM.dd -> NG
-        if(!match[YEAR_GROUP] && match[0].indexOf('/') < 0) return;
+        if(!match[YEAR_GROUP] && !(match[0].indexOf('/') > 0 || match[0].indexOf('do') > 0)) return;
 
         var date = null;
         var year = match[YEAR_GROUP] || moment(ref).year() + '';
