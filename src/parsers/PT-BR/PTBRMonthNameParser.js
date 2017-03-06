@@ -15,8 +15,9 @@ var Parser = require('../parser').Parser;
 var ParsedResult = require('../../result').ParsedResult;
 var util  = require('../../utils/PT-BR');
 
+// There is no OPTIONAL abbreviation for "Dezembro" (December) to not be confused with the numeral "dez" (10)
 var PATTERN = new RegExp('(^|\\D\\s+|[^\\w\\s])' +
-    '(Jan(?:eiro|\\.)?|Fev(?:reiro|\\.)?|Mar(?:[çc]o|\\.)?|Abr(?:il|\\.)?|Mai(?:o|\\.)?|Jun(?:ho|\\.)?|Jul(?:ho|\\.)?|Ago(?:sto|\\.)?|Set(?:embro|\\.)?|Out(?:ubro|\\.)?|Nov(?:embro|\\.)?|Dez(?:embro|\\.)?)' +
+    '(Jan(?:eiro|\\.)?|Fev(?:reiro|\\.)?|Mar(?:[çc]o|\\.)?|Abr(?:il|\\.)?|Mai(?:o|\\.)?|Jun(?:ho|\\.)?|Jul(?:ho|\\.)?|Ago(?:sto|\\.)?|Set(?:embro|\\.)?|Out(?:ubro|\\.)?|Nov(?:embro|\\.)?|Dez(?:embro|\\.))' +
     '\\s*' +
     '(?:' +
         '[,-]?(?:de)?\\s*([0-9]{3,4})(\\s*A\\.?C\\.?)?' +
