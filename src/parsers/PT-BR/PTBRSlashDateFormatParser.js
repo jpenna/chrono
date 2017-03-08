@@ -14,7 +14,7 @@ var util = require('../../utils/PT-BR');
 var PATTERN = new RegExp('(\\W|^)' +
     '(?:' +
         '(?:n[oa]\\s*?)?' +
-        '((?:dom(?:ingo)?|seg(?:unda)?|ter(?:er[cç]a)?|qua(?:rta)?|qui(?:nta?)?|sex(?:ta)?|s[áa]b(?:ado)?)(?:-feira)?)' +
+        '\\b((?:dom(?:ingo)?|seg(?:unda)?|ter(?:er[cç]a)?|qua(?:rta)?|qui(?:nta?)?|sex(?:ta)?|s[áa]b(?:ado)?)(?:-feira)?)\\b' +
         '\\s*\\,?\\s*' +
     ')?' +
     '([0-3]{0,1}[0-9]{1})(?:[\\/\\.\\-]|\\s*do\\s*)([0-3]{0,1}[0-9]{1})' +

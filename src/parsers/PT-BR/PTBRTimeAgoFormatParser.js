@@ -12,7 +12,7 @@ var PATTERN = new RegExp('' +
     '(\\W|^)' +
     '(?:em\\s*)?(?:u[n,m]a?s\\s*)?' +
     '(' + util.INTEGER_WORDS_PATTERN + '|[0-9]+|u[n,m]a?s?|pouc[ao]s?|algu(?:mas?|ns?)|mei[ao])?\\s*' +
-    '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)s?|dias?|semanas?|m[eê]s(?:es)?|anos?)\\s*' +
+    '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)s?|dias?|semanas?|m[eê]s(?:es)?|anos?)\\b\\s*' +
     '(?:atr[áa][sz]|mais\\s*[sc]edo|antes|passad[oa])(?=(?:\\W|$))', 'i');
 
 var STRICT_PATTERN = new RegExp('' +

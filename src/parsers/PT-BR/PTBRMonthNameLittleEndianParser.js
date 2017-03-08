@@ -11,7 +11,7 @@ var util  = require('../../utils/PT-BR');
 
 var PATTERN = new RegExp('(\\W|^)' +
         '(?:n[oa]\\s*?)?' +
-        '(?:(' + util.WEEKDAY_OFFSET_PATTERN + ')(?:-feira)?\\s*,?\\s*)?' +
+        '\\b(?:(' + util.WEEKDAY_OFFSET_PATTERN + ')(?:-feira)?\\b\\s*,?\\s*)?' +
         '(([0-9]{1,2})|' + util.INTEGER_WORDS_PATTERN + ')' +
         '(?:\\s*' +
             '(?:at[ée]|\\-|\\–|\\s)\\s*' +

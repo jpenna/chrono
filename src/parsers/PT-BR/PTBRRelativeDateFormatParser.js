@@ -9,9 +9,9 @@ var ParsedResult = require('../../result').ParsedResult;
 var util  = require('../../utils/PT-BR');
 
 var PATTERN = new RegExp('(\\W|^)' +
-    '(daqui|mais|pr[óo]xim[ao]s?|[úu]ltim[oa]s?|tem)?\\s*(?:u[n,m]a?s\\s*)?' +
+    '\\b(daqui|mais|pr[óo]xim[ao]s?|[úu]ltim[oa]s?|tem)\\s*(?:u[n,m]a?s\\s*)?' +
     '('+ util.INTEGER_WORDS_PATTERN + '|[0-9]+|mei[oa])?\\s*' +
-    '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)?s?|dias?|semanas?|m[êe]s(?:es)?|anos?)(?:\\s*)' +
+    '(seg(?:undo)?s?|min(?:uto)?s?|h(?:ora)?s?|dias?|semanas?|m[êe]s(?:es)?|anos?)\\b\\s*' +
     '(que\\s*vem)?' +
     '(?=\\W|$)', 'i'
 );

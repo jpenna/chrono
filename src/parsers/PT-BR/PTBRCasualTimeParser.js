@@ -7,7 +7,7 @@ var moment = require('moment');
 var Parser = require('../parser').Parser;
 var ParsedResult = require('../../result').ParsedResult;
 
-var PATTERN = /(\W|^)\s*(manh[ãa]|tarde|noite)\s*/i;
+var PATTERN = /(\W|^)\s*\b(manh[ãa]|tarde|noite)\b\s*/i;
 
 var TIME_MATCH = 2;
 
