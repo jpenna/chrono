@@ -5,7 +5,6 @@ exports.WEEKDAY_OFFSET = {
     'seg': 1,
     'terça': 2,
     'terca': 2,
-    'ter':2,
     'quarta': 3,
     'qua': 3,
     'quinta': 4,
