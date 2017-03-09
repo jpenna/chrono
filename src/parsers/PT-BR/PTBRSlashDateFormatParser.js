@@ -11,10 +11,11 @@ var Parser = require('../parser').Parser;
 var ParsedResult = require('../../result').ParsedResult;
 var util = require('../../utils/PT-BR');
 
+// "Terça" ("Tuesday") don't have abbreviation to don't get confused with verb "ter" ("have")
 var PATTERN = new RegExp('(\\W|^)' +
     '(?:' +
         '(?:n[oa]\\s*?)?' +
-        '\\b((?:dom(?:ingo)?|seg(?:unda)?|ter(?:er[cç]a)?|qua(?:rta)?|qui(?:nta?)?|sex(?:ta)?|s[áa]b(?:ado)?)(?:-feira)?)\\b' +
+        '\\b((?:dom(?:ingo)?|seg(?:unda)?|ter[cç]a|qua(?:rta)?|qui(?:nta?)?|sex(?:ta)?|s[áa]b(?:ado)?)(?:-feira)?)\\b' +
         '\\s*\\,?\\s*' +
     ')?' +
     '([0-3]{0,1}[0-9]{1})(?:[\\/\\.\\-]|\\s*do\\s*)([0-3]{0,1}[0-9]{1})' +
