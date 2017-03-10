@@ -66,9 +66,11 @@ exports.es = new Chrono( options.mergeOptions([
 exports.fr = new Chrono( options.mergeOptions([
     options.fr.casual, options.en, options.commonPostProcessing]));
 
-exports.ja = new Chrono( options.mergeOptions([ 
+exports.ja = new Chrono( options.mergeOptions([
     options.ja.casual, options.en, options.commonPostProcessing]));
 
+exports.ptbr = new Chrono( options.mergeOptions([
+    options.ptbr.casual, options.en, options.commonPostProcessing]));
 
 exports.parse = function () {
     return exports.casual.parse.apply(exports.casual, arguments);
@@ -77,7 +79,3 @@ exports.parse = function () {
 exports.parseDate = function () {
     return exports.casual.parseDate.apply(exports.casual, arguments);
 }
-
-
-
-
