@@ -47,3 +47,7 @@ exports.FRMergeDateTimeRefiner = require('./FR/FRMergeDateTimeRefiner').Refiner;
 // PTBR refiners
 exports.PTBRMergeDateTimeRefiner = require('./PT-BR/PTBRMergeDateTimeRefiner').Refiner;
 exports.PTBRMergeDateRangeRefiner = require('./PT-BR/PTBRMergeDateRangeRefiner').Refiner;
+
+// DE refiners
+exports.DEMergeDateRangeRefiner = require('./DE/DEMergeDateRangeRefiner').Refiner;
+exports.DEMergeDateTimeRefiner = require('./DE/DEMergeDateTimeRefiner').Refiner;
