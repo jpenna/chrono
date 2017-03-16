@@ -7,7 +7,7 @@ var moment = require('moment');
 var Parser = require('../parser').Parser;
 var ParsedResult = require('../../result').ParsedResult;
 
-var PATTERN = /(\W|^)\b(agora|hoje|noite\s*passada|(?:depois\s*de\s*)?amanh[ãa]|ontem|ant[ei]ontem)\b(?=\W|$)/i;
+var PATTERN = /(\W|^)\b(agora|hoje|noite\s*passada|(?:depois\s*de\s*)?amanh[ãa]|ontem|ant[ei]\s*ontem)\b(?=\W|$)/i;
 
 exports.Parser = function PTBRCasualDateParser(){
 
