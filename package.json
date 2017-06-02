@@ -34,8 +34,10 @@
     "karma": "karma start",
     "test": "qunit -l '{summary:true, tests: true}' -c chrono:src/chrono.js -p src -t test/*.js --cov",
     "coveralls": "npm run test && cat coverage/lcov.info | coveralls"
+    "prepublish": "npm run make-minify"
   },
   "dependencies": {
-    "moment": "^2.10.3"
+    "moment": "^2.10.3",
+    "qunitjs": "^2.3.2"
   }
 }
