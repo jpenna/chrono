@@ -7,3 +7,7 @@ coverage/
 # Misc
 .Rhistory
 .idea/
+
+chrono.js
+chrono.min.js
+chrono.map.json

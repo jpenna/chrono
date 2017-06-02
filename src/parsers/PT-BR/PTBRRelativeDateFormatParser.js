@@ -28,6 +28,7 @@ exports.Parser = function PTBRRelativeDateFormatParser(){
 
     this.extract = function(text, ref, match, opt){
 
+        var index = match.index + match[1].length;
         var modifier = match[MODIFIER_WORD_GROUP] && match[MODIFIER_WORD_GROUP].toLowerCase().match(/ltim|^tem|^faz/) ? -1 : 1;
         var text  = match[0];
         text  = match[0].substr(match[1].length, match[0].length - match[1].length);
