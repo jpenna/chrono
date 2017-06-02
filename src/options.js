@@ -62,7 +62,7 @@ exports.strictOption = function () {
         exports.fr(true),
         exports.ja(true),
         exports.zh,
-        exports.ptbr(true),
+        // exports.ptbr(true),
         exports.commonPostProcessing,
     ]);
 };
@@ -76,7 +76,7 @@ exports.casualOption = function () {
         exports.fr.casual,
         exports.ja.casual,
         exports.zh,
-        exports.ptbr.casual,
+        // exports.ptbr.casual,
         exports.commonPostProcessing,
     ]);
 };

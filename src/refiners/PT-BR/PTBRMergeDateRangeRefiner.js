@@ -6,7 +6,7 @@ var Refiner = require('../refiner').Refiner;
 exports.Refiner = function PTBRMergeDateRangeRefiner() {
     Refiner.call(this);
 
-    this.pattern = function () { return /^\s*(at[ée]|\-|[aàá]s?|e)\s*/i };
+    this.pattern = function () { return /^\s*(at[ée]|\-|[aàá]s?|e)\s*$/i };
 
     this.refine = function(text, results, opt) {
 
@@ -16,7 +16,7 @@ exports.Refiner = function PTBRMergeDateRangeRefiner() {
         var currResult = null;
         var prevResult = null;
 
-        for (var i=1; i<results.length; i++){
+        for (var i=1; i<results.length; i++) {
 
             currResult = results[i];
             prevResult = results[i-1];
@@ -53,7 +53,6 @@ exports.Refiner = function PTBRMergeDateRangeRefiner() {
     };
 
     this.mergeResult = function(text, fromResult, toResult) {
-
         if (!this.isWeekdayResult(fromResult) && !this.isWeekdayResult(toResult)) {
 
             for (var key in toResult.start.knownValues) {
@@ -70,9 +69,13 @@ exports.Refiner = function PTBRMergeDateRangeRefiner() {
         }
 
         if (fromResult.start.date().getTime() > toResult.start.date().getTime()) {
-            var tmp = toResult;
-            toResult = fromResult;
-            fromResult = tmp;
+            for (var key in toResult.start.knownValues) {
+              var toStart = toResult.start;
+              if (key == 'day') toStart.imply('month', toStart.get('month') + 1);
+              if (key == 'month') toStart.imply('year', toStart.get('year') + 1);
+              if (key == 'hour') toStart.imply('day', toStart.get('day') + 1);
+            }
+
         }
 
         fromResult.end = toResult.start;

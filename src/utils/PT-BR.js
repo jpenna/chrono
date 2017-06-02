@@ -14,7 +14,8 @@ exports.WEEKDAY_OFFSET = {
     'sábado': 6,
     'sabado': 6,
     'sáb': 6,
-    'sab': 6,}
+    'sab': 6,
+  }
 
 exports.WEEKDAY_OFFSET_PATTERN = '(?:' + Object.keys(exports.WEEKDAY_OFFSET).join('|') +')';
 

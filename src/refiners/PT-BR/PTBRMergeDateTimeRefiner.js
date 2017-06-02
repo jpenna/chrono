@@ -22,7 +22,7 @@ function isAbleToMerge(text, prevResult, curResult) {
     return textBetween.match(PATTERN);
 }
 
-function mergeResult(text, dateResult, timeResult){
+function mergeResult(text, dateResult, timeResult) {
 
     var beginDate = dateResult.start;
     var beginTime = timeResult.start;
